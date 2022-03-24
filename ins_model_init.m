@@ -1,4 +1,4 @@
-model_version = 'v0.1.1';
+model_version = 'v0.2.1';
 model_name = 'Base INS';
 
 %% Load configuration
@@ -20,24 +20,25 @@ INS_EXPORT = Simulink.Parameter(INS_EXPORT_VALUE);
 INS_EXPORT.CoderInfo.StorageClass = 'ExportedGlobal';
 
 %% Paramaters
-% INS_PARAM_VALUE.GyroBias = single([0;0;0]);
-% INS_PARAM_VALUE.GyroRotMat = single(eye(3));
-% INS_PARAM_VALUE.AccBias = single([0;0;0]);
-% INS_PARAM_VALUE.AccRotMat = single(eye(3));
-% INS_PARAM_VALUE.MagBias = single([0;0;0]);
-% INS_PARAM_VALUE.MagRotMat = single(eye(3));
-% 
-% INS_PARAM_VALUE.GyroBias2 = single([0;0;0]);
-% INS_PARAM_VALUE.GyroRotMat2 = single(eye(3));
-% INS_PARAM_VALUE.AccBias2 = single([0;0;0]);
-% INS_PARAM_VALUE.AccRotMat2 = single(eye(3));
-% INS_PARAM_VALUE.MagBias2 = single([0;0;0]);
-% INS_PARAM_VALUE.MagRotMat2 = single(eye(3));
-% 
-% INS_PARAM_VALUE.LevelXOFF = single(0);
-% INS_PARAM_VALUE.LevelYOFF = single(0);
-% 
-% INS_PARAM_VALUE.USE_EXTERN_FILTER = uint8(0); % Use External Filter for IMU
-% 
-% INS_PARAM = Simulink.Parameter(INS_PARAM_VALUE);
-% INS_PARAM.CoderInfo.StorageClass = 'ExportedGlobal';
+INS_PARAM_VALUE.GPS_HOR_Q_BIAS = single(3);
+INS_PARAM_VALUE.GPS_HOR_Q_SCALE = single(0.4);
+INS_PARAM_VALUE.GPS_VER_Q_BIAS = single(6);
+INS_PARAM_VALUE.GPS_VER_Q_SCALE = single(0.25);
+INS_PARAM_VALUE.GPS_VEL_Q_BIAS = single(0.8);
+INS_PARAM_VALUE.GPS_VEL_Q_SCALE = single(2);
+INS_PARAM_VALUE.ATT_CORR_GAIN = single(0.2);
+INS_PARAM_VALUE.HEADING_CORR_GAIN = single(0.05);
+INS_PARAM_VALUE.MAG_CORR_GAIN = single(0.2);
+INS_PARAM_VALUE.BIAS_G_CORR_GAIN = single(0.25);
+INS_PARAM_VALUE.GPS_POS_CORR_GAIN = single(0);
+INS_PARAM_VALUE.GPS_VEL_CORR_GAIN = single(2);
+INS_PARAM_VALUE.GPS_BIAS_A_CORR_GAIN = single(1);
+INS_PARAM_VALUE.GPS_POS_DELAY = uint32(150);
+INS_PARAM_VALUE.GPS_VEL_DELAY = uint32(100);
+INS_PARAM_VALUE.BARO_H_CORR_GAIN = single(2);
+INS_PARAM_VALUE.BARO_VZ_CORR_GAIN = single(1);
+INS_PARAM_VALUE.BARO_BIAS_AZ_CORR_GAIN = single(0.2);
+INS_PARAM_VALUE.BARO_H_DELAY = uint32(10);
+
+INS_PARAM = Simulink.Parameter(INS_PARAM_VALUE);
+INS_PARAM.CoderInfo.StorageClass = 'ExportedGlobal';
